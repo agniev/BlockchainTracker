@@ -1,35 +1,38 @@
-package com.example.blockchaintracker.presentation.choose_mode;
+package com.example.blockchaintracker.presentation.police;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.blockchaintracker.R;
 import com.example.blockchaintracker.core.fragments.BaseFragment;
-import com.example.blockchaintracker.core.presenter.EmptyPresenter;
 import com.example.blockchaintracker.presentation.MainRouter;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ChooseModeFragment extends BaseFragment<EmptyPresenter, MainRouter> {
+public class PoliceFragment extends BaseFragment<PolicePresenter, MainRouter> implements PoliceView {
 
-    @NonNull
-    public static ChooseModeFragment newInstance() {
-        return new ChooseModeFragment();
+    @BindView(R.id.result)
+    TextView result;
+
+    public static PoliceFragment newInstance() {
+        return new PoliceFragment();
     }
 
     @Override
     protected int layoutResId() {
-        return R.layout.fragment_choose_mode;
+        return R.layout.fragment_police;
     }
 
     @Override
     protected void setToolbar(ActionBar actionBar, Toolbar toolbar) {
-        toolbar.setTitle(R.string.choose_mode);
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        toolbar.setTitle(R.string.police);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
     }
 
@@ -53,13 +56,13 @@ public class ChooseModeFragment extends BaseFragment<EmptyPresenter, MainRouter>
 
     }
 
-    @OnClick(R.id.tracker_user)
-    void onTrackerUserModeClick() {
-        router().navigateToTrackerUserFragment();
+    @Override
+    public void setResult(String result) {
+        this.result.setText(result);
     }
 
-    @OnClick(R.id.police)
-    void onPoliceModeClick() {
-        router().navigateToPoliceFragment();
+    @OnClick(R.id.check)
+    void onCheckClick() {
+        presenter().check();
     }
 }

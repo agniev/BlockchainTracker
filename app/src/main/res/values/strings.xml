@@ -3,4 +3,6 @@
     <string name="please_wait">Пожалуйста, подождите…</string>
     <string name="ok">Ок</string>
     <string name="choose_mode">Выбор режима</string>
+    <string name="tracker_user">Пользователь трекера</string>
+    <string name="police">Проверяющий</string>
 </resources>

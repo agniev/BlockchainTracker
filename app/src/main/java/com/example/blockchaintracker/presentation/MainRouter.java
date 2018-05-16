@@ -7,4 +7,7 @@ public interface MainRouter extends BaseRouter {
 
     void navigateToChooseModeFragment();
 
+    void navigateToPoliceFragment();
+
+    void navigateToTrackerUserFragment();
 }

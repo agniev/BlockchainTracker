@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID проверяемого:"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/tracker_user_id"
+        android:layout_marginStart="160dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="123456"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS долгота:"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/gps_length"
+        android:layout_marginStart="160dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:hint="в формате 00.00"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS широта:"
+        android:textSize="18sp"
+        android:layout_marginTop="90dp"/>
+
+    <EditText
+        android:id="@+id/gps_width"
+        android:layout_marginStart="160dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="80dp"
+        android:hint="в формате 00.00"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата и время:"
+        android:textSize="18sp"
+        android:layout_marginTop="130dp"/>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_marginStart="160dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="120dp"
+        android:hint="01.01.2018 00:00"/>
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        android:text="Проверить"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результат:"
+        android:textSize="18sp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="160dp"
+        tools:text="ОПРАВДАН"/>
+
+
+</FrameLayout>
