@@ -12,7 +12,7 @@ public class TrackingData {
 
     private String hash;
 
-    private String previousHash;
+    private String blockHash;
 
     private long blockId;
 
@@ -66,12 +66,12 @@ public class TrackingData {
         this.hash = hash;
     }
 
-    public String getPreviousHash() {
-        return previousHash;
+    public String getBlockHash() {
+        return blockHash;
     }
 
-    public void setPreviousHash(String previousHash) {
-        this.previousHash = previousHash;
+    public void setBlockHash(String blockHash) {
+        this.blockHash = blockHash;
     }
 
     public long getBlockId() {

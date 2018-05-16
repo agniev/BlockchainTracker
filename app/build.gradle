@@ -23,11 +23,11 @@ android {
     buildTypes {
 
         debug {
-            resValue "string", "serverBaseUrl", "http://192.168.1.35:8080/"
+            resValue "string", "serverBaseUrl", "http://192.168.43.152:8080/"
         }
 
         release {
-            resValue "string", "serverBaseUrl", "http://192.168.1.35:8080/"
+            resValue "string", "serverBaseUrl", "http://192.168.43.152:8080/"
 
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

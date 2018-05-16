@@ -8,12 +8,12 @@ import com.example.blockchaintracker.core.adapters.BaseRecyclerAdapter;
 public class TrackUserAdapter extends BaseRecyclerAdapter<TrackingData, BlockModelViewHolder> {
     @Override
     protected void onBind(TrackingData bean, BlockModelViewHolder holder, int properPosition) {
-        holder.id.setText(bean.getId());
+        holder.id.setText(String.valueOf(bean.getId()));
         holder.gpsLength.setText(bean.getGpsLongitude());
         holder.gpsWidth.setText(bean.getGpsLatitude());
         holder.date.setText(bean.getDate());
         holder.hash.setText(bean.getHash());
-        holder.previousHash.setText(bean.getPreviousHash());
+        holder.previousHash.setText(bean.getBlockHash());
         holder.blockId.setText(String.valueOf(bean.getBlockId()));
         holder.nonce.setText(String.valueOf(bean.getNonce()));
     }

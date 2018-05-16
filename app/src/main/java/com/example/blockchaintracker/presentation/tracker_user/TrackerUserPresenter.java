@@ -128,6 +128,7 @@ public class TrackerUserPresenter extends BasePresenter<TrackerUserView, EmptySt
         }
         String hash = HashUtils.applySha256(id +" "+ gpsLatitude +" "+ gpsLongitude +" "+ date);
         currentTrackingData = new TrackingData(id, gpsLongitude, gpsLatitude, date, hash);
+        Log.d(TAG, id + " " + gpsLatitude +" "+ gpsLongitude +" "+ date);
         sendData(hash);
     }
 
@@ -200,7 +201,7 @@ public class TrackerUserPresenter extends BasePresenter<TrackerUserView, EmptySt
             if (view() != null) {
                 currentTrackingData.setBlockId(response.getId());
                 currentTrackingData.setNonce(response.getNonce());
-                currentTrackingData.setPreviousHash(response.getPrevious_hash());
+                currentTrackingData.setBlockHash(response.getHash());
                 dataList.add(currentTrackingData);
                 view().refreshItemList(dataList);
                 view().showError("Блок добавлен");
