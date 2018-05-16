@@ -8,7 +8,7 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/light_gray</item>
 
         <!--<item name="colorControlNormal">@color/colorPrimary</item>-->
     </style>

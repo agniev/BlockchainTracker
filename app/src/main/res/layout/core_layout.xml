@@ -24,7 +24,7 @@
             app:contentInsetStart="16dp"
             app:contentInsetStartWithNavigation="0dp"
             app:popupTheme="@style/ToolbarStyle.Popup"
-            app:theme="@style/ToolbarStyle" />
+            android:theme="@style/ToolbarStyle" />
 
         <FrameLayout
             android:id="@+id/core_content_frame"

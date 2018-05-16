@@ -5,4 +5,9 @@
     <string name="choose_mode">Выбор режима</string>
     <string name="tracker_user">Пользователь трекера</string>
     <string name="police">Проверяющий</string>
+    <string name="permission_gps_snackbar">Геоданные</string>
+    <string name="permission_settings_button_text">НАСТРОЙКИ</string>
+    <string name="permission_gps_rationale_title">Доступ к геоданным</string>
+    <string name="permission_gps_rationale">Необходим доступ к геоданным</string>
+    <string name="permission_ok">OK</string>
 </resources>

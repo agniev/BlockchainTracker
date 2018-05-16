@@ -1,95 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID проверяемого:"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"/>
+        android:background="@color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="16dp">
 
-    <EditText
-        android:id="@+id/tracker_user_id"
-        android:layout_marginStart="160dp"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        tools:text="123456"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="ID проверяемого:"
+            android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GPS долгота:"
-        android:textSize="18sp"
-        android:layout_marginTop="50dp"/>
+        <EditText
+            android:id="@+id/tracker_user_id"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:textSize="16sp"
+            tools:text="123456" />
 
-    <EditText
-        android:id="@+id/gps_length"
-        android:layout_marginStart="160dp"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="40dp"
-        android:hint="в формате 00.00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="GPS долгота:"
+            android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GPS широта:"
-        android:textSize="18sp"
-        android:layout_marginTop="90dp"/>
+        <EditText
+            android:id="@+id/gps_length"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="40dp"
+            android:hint="в формате 00.00"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/gps_width"
-        android:layout_marginStart="160dp"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="80dp"
-        android:hint="в формате 00.00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="GPS широта:"
+            android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Дата и время:"
-        android:textSize="18sp"
-        android:layout_marginTop="130dp"/>
+        <EditText
+            android:id="@+id/gps_width"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="80dp"
+            android:hint="в формате 00.00"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/date"
-        android:layout_marginStart="160dp"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="120dp"
-        android:hint="01.01.2018 00:00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:text="Дата и время:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="120dp"
+            android:hint="01.01.2018 00:00"
+            android:textSize="16sp" />
+
+    </FrameLayout>
 
     <Button
         android:id="@+id/check"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="180dp"
-        android:text="Проверить"/>
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Проверить" />
 
     <TextView
+        android:id="@+id/result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginStart="18dp"
         android:text="Результат:"
-        android:textSize="18sp"
-        android:layout_marginTop="250dp"/>
+        android:textSize="30sp"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="160dp"
-        tools:text="ОПРАВДАН"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="340dp"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        tools:text="Присутствовал" />
 
 
 </FrameLayout>

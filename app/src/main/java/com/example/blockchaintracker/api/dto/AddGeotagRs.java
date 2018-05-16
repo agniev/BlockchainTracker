@@ -1,6 +1,6 @@
 package com.example.blockchaintracker.api.dto;
 
-public class AddBlockRq {
+public class AddGeotagRs {
 
     private long id;
     private String hash;
@@ -8,7 +8,7 @@ public class AddBlockRq {
     private String info;
     private long nonce;
 
-    public AddBlockRq(long id, String hash, String previous_hash, String info, long nonce) {
+    public AddGeotagRs(long id, String hash, String previous_hash, String info, long nonce) {
         this.id = id;
         this.hash = hash;
         this.previous_hash = previous_hash;

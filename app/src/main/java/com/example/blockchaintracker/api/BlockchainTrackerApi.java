@@ -1,8 +1,8 @@
 package com.example.blockchaintracker.api;
 
-import com.example.blockchaintracker.api.dto.AddBlockRq;
+import com.example.blockchaintracker.api.dto.GeotagRq;
+import com.example.blockchaintracker.api.dto.AddGeotagRs;
 import com.example.blockchaintracker.api.dto.EmptyRs;
-import com.example.blockchaintracker.api.dto.TestRs;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -12,9 +12,10 @@ import retrofit2.http.POST;
 
 public interface BlockchainTrackerApi {
 
-    @GET("get_block/1")
-    Observable<TestRs> getTest();
+    @POST("add_geotag")
+    Observable<AddGeotagRs> addBlock(@Body GeotagRq request);
 
-    @POST("add_block")
-    Observable<EmptyRs> addBlock(@Body AddBlockRq request);
+    @POST("check_guilty")
+    Observable<Boolean> checkGuilty(@Body GeotagRq request);
+
 }

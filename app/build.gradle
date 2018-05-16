@@ -81,4 +81,6 @@ dependencies {
     compile('com.mikepenz:materialdrawer:6.0.2@aar') {
         transitive = true
     }
+    //Permissions
+    implementation 'com.karumi:dexter:4.1.1'
 }

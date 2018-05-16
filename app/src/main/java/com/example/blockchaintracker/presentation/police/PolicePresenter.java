@@ -1,76 +1,46 @@
 package com.example.blockchaintracker.presentation.police;
 
-import com.example.blockchaintracker.api.dto.AddBlockRq;
-import com.example.blockchaintracker.api.dto.EmptyRs;
-import com.example.blockchaintracker.api.dto.TestRs;
-import com.example.blockchaintracker.api.requests.AddBlock;
-import com.example.blockchaintracker.api.requests.GetTest;
+import com.example.blockchaintracker.api.dto.AddGeotagRs;
+import com.example.blockchaintracker.api.dto.GeotagRq;
+import com.example.blockchaintracker.api.requests.AddGeotag;
+import com.example.blockchaintracker.api.requests.CheckGuilty;
 import com.example.blockchaintracker.core.presenter.BasePresenter;
 import com.example.blockchaintracker.core.presenter.EmptyState;
+import com.example.blockchaintracker.utils.HashUtils;
 
 import io.reactivex.observers.DisposableObserver;
 
-/**
- * Created by Роман on 15.05.2018.
- */
-
 public class PolicePresenter extends BasePresenter<PoliceView, EmptyState> {
 
-    private GetTest getTest;
-    private AddBlock addBlock;
+    private CheckGuilty checkGuilty;
 
     @Override
     public void viewCreated() {
         super.viewCreated();
-        getTest = new GetTest(view().context());
-        addBlock = new AddBlock(view().context());
+        checkGuilty = new CheckGuilty(view().context());
     }
 
     @Override
     public void destroyView() {
         super.destroyView();
-        getTest.dispose();
+        checkGuilty.dispose();
     }
 
-    public void check() {
+    public void check(String userId, String gpsLongitude, String gpsLatitude, String date) {
         view().showLoading();
-//        getTest.execute(new GetTestObserver(), null);
-
-        AddBlockRq request = new AddBlockRq(1234, "sdgsv", "asdad", "data", 5);
-        addBlock.execute(new AddBlockObserver(), AddBlock.Params.forQuery(request));
+        view().setResultVisibility(false);
+        String hash = HashUtils.applySha256(userId +" "+ gpsLatitude +" "+ gpsLongitude +" "+ date);
+        GeotagRq request = new GeotagRq(hash);
+        checkGuilty.execute(new CheckGuiltyObserver(), CheckGuilty.Params.forQuery(request));
     }
 
-    private class GetTestObserver extends DisposableObserver<TestRs> {
+    private class CheckGuiltyObserver extends DisposableObserver<Boolean> {
 
         @Override
-        public void onNext(TestRs response) {
+        public void onNext(Boolean response) {
             if (view() != null) {
-                view().setResult(response.getId()+" "+response.getNonce()+" "+response.getInfo());
-            }
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            if (view() != null) {
-                view().showError(e.getMessage());
-                view().hideLoading();
-            }
-        }
-
-        @Override
-        public void onComplete() {
-            if (view() != null) {
-                view().hideLoading();
-            }
-        }
-    }
-
-    private class AddBlockObserver extends DisposableObserver<EmptyRs> {
-
-        @Override
-        public void onNext(EmptyRs response) {
-            if (view() != null) {
-                view().setResult("OK");
+                view().setResultVisibility(true);
+                view().setResult(response);
             }
         }
 
