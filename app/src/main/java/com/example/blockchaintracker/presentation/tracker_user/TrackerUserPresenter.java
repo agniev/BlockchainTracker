@@ -67,8 +67,9 @@ public class TrackerUserPresenter extends BasePresenter<TrackerUserView, EmptySt
 
     @Override
     public void destroyView() {
-        super.destroyView();
         addGeotag.dispose();
+        view().context().runOnUiThread(this::stopTimer);
+        super.destroyView();
     }
 
     private void getGpsWithPermission() {
@@ -150,8 +151,6 @@ public class TrackerUserPresenter extends BasePresenter<TrackerUserView, EmptySt
                 public void run() {
                     if (view() != null) {
                         view().context().runOnUiThread(() -> createData());
-                    } else {
-                        view().context().runOnUiThread(() -> stopTimer());
                     }
                 }
             };
